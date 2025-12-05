@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="initial-scale=1, width=device-width" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="theme-color" content="#000000" />
+  <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/icon.png" />
+
+  <title>Sugar, Sugar Unblocked Game – StaticQuasar931</title>
+  <meta name="description" content="Play Sugar, Sugar unblocked on StaticQuasar931. Draw lines to guide sugar into the cups in this classic puzzle g@me. Works at school, home, and on Chromebooks." />
+  <meta name="keywords" content="Sugar Sugar, Sugar Sugar 1, sugar sugar unblocked, sugar sugar game, sugar sugar g@me, puzzle game unblocked, draw game unblocked, sugar sugar school, sugar sugar unbl0cked, sugar sugar working at school, sugar sugar classroom safe, unblocked puzzle games, staticquasar931, static 931, staticq931, 931 games, unblocked g@mes" />
+  <link rel="canonical" href="https://sites.google.com/view/staticquasar931/gm3z/sugar-sugar" />
+
+  <!-- Social -->
+  <meta property="og:title" content="Sugar, Sugar Unblocked Game – StaticQuasar931">
+  <meta property="og:description" content="Draw lines to guide sugar into the cups. Play Sugar, Sugar unblocked and school-safe.">
+  <meta property="og:image" content="https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/icon.png">
+  <meta property="og:url" content="https://sites.google.com/view/staticquasar931/gm3z/sugar-sugar">
+  <meta property="og:type" content="website">
+
+  <style>
+    html, body {
+      margin:0;
+      height:100%;
+      background:#000;
+      overflow:hidden;
+      font-family:system-ui, sans-serif;
+      color:#eaf4ff;
+    }
+
+    /* Fullscreen game */
+    #gameContainer {
+      position:fixed;
+      inset:0;
+      background:#000;
+    }
+    ruffle-player {
+      width:100%;
+      height:100%;
+      display:block;
+      background:#000;
+    }
+    ruffle-player::part(controls){
+      display:none !important;
+    }
+
+    /* Fallback loading */
+    #gameFallback {
+      position:absolute;
+      inset:0;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding:20px;
+      font-size:15px;
+      color:#d8eaff;
+      background:#03040a;
+    }
+    #gameFallback strong { color:#5ee1ff; }
+
+    /* STATIC MENU (top-left by default) */
+    #staticMenu{
+      position:fixed;
+      left:12px;
+      top:12px;
+      z-index:9999;
+      display:flex; 
+      gap:10px;
+      padding:10px 14px;
+      background:linear-gradient(135deg, rgba(20,20,28,.9), rgba(20,20,28,.6));
+      border-radius:12px;
+      border:1px solid rgba(94,225,255,.35);
+      color:#e8f3ff;
+      box-shadow:0 0 12px rgba(94,225,255,.65), 0 0 32px rgba(155,255,183,.35);
+      font-size:14px;
+      align-items:center;
+    }
+    #staticMenu a { color:#5ee1ff; font-weight:800; text-decoration:none; }
+    #closeStaticMenu {
+      color:#f55; cursor:pointer;
+      padding:2px 6px;
+      border-radius:6px;
+      border:1px solid rgba(255,255,255,.15);
+      background:rgba(255,255,255,.06);
+    }
+
+    /* Rotating Widget (bottom-right) */
+    #staticSlideMenu{
+      position:fixed;
+      bottom:24px;
+      right:24px;
+      width:100px;
+      height:100px;
+      opacity:0;
+      pointer-events:none;
+      transform:translateX(140px) scale(.96);
+      z-index:9999;
+    }
+    #staticSlideMenu img{
+      width:100%; height:100%;
+      object-fit:contain;
+      transition:opacity .25s ease;
+    }
+    .slide-in{ animation:slideIn 2s ease forwards }
+    .slide-out{ animation:slideOut 2s ease forwards }
+
+    @keyframes slideIn{
+      from{opacity:0; transform:translateX(140px) scale(.96)}
+      to{opacity:1; transform:translateX(0) scale(1)}
+    }
+    @keyframes slideOut{
+      from{opacity:1; transform:translateX(0) scale(1)}
+      to{opacity:0; transform:translateX(140px) scale(.96)}
+    }
+
+    /* Hidden SEO */
+    .seo-hidden{
+      position:absolute; width:1px; height:1px;
+      overflow:hidden; clip:rect(1px,1px,1px,1px);
+      white-space:nowrap;
+    }
+  </style>
+
+  <!-- Ruffle config -->
+  <script>
+    window.RufflePlayer = window.RufflePlayer || {};
+    window.RufflePlayer.config = {
+      autoplay:"on",
+      quality:"high",
+      unmuteOverlay:"hidden",
+      contextMenu:"off",
+      showSwfDownload:false
+    };
+  </script>
+  <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+</head>
+<body>
+
+  <!-- Static Menu -->
+  <div id="staticMenu">
+    <a href="https://sites.google.com/view/staticquasar931/gm3z" target="_blank">More Unblocked Games by Static</a>
+    <span id="closeStaticMenu">✕</span>
+  </div>
+
+  <!-- Rotating widget -->
+  <div id="staticSlideMenu">
+    <a id="staticSlideLink" href="https://sites.google.com/view/staticquasar931/google-form" target="_blank">
+      <img id="staticSlideImg" src="https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/GoogleForm.png">
+    </a>
+  </div>
+
+  <!-- GAME -->
+  <div id="gameContainer">
+    <div id="gameFallback">
+      <div>
+        <strong>Loading Sugar, Sugar...</strong><br><br>
+        If the game does not start, confirm the file <code>sugar-sugar-10638f2f2.swf</code> is in the same folder.
+      </div>
+    </div>
+  </div>
+
+<script>
+/* Leave Warning */
+window.onbeforeunload = () => 
+  "Are you sure you want to leave? Your Sugar, Sugar progress may be lost.";
+
+/* Static Menu Hide 3 Minutes */
+(function(){
+  const menu = document.getElementById("staticMenu");
+  const btn = document.getElementById("closeStaticMenu");
+  const KEY = "sq931_menu_hide_until";
+
+  function showMenu(){ menu.style.display = "flex"; }
+  function hideFor3m(){
+    menu.style.display = "none";
+    const until = Date.now() + 180000;
+    localStorage.setItem(KEY, until);
+    setTimeout(showMenu, 180000);
+  }
+
+  const until = parseInt(localStorage.getItem(KEY)||"0");
+  if(until > Date.now()) menu.style.display="none";
+  else showMenu();
+
+  btn.onclick = hideFor3m;
+})();
+
+/* Rotating Widget */
+(function(){
+  const wrap = document.getElementById("staticSlideMenu");
+  const link = document.getElementById("staticSlideLink");
+  const img  = document.getElementById("staticSlideImg");
+
+  const ROT = [
+    {
+      src:"https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/GoogleForm.png",
+      link:"https://sites.google.com/view/staticquasar931/google-form"
+    },
+    {
+      src:"https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/Join_Our_DC_StaticQuassar931_lcplrf.png",
+      link:"https://discord.gg/DP2hM7RRhR"
+    },
+    {
+      src:"https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/Follow-us--IG",
+      link:"https://www.instagram.com/freeschoolgamepage/"
+    }
+  ];
+
+  ROT.forEach(o=>{ let p=new Image(); p.src=o.src; });
+
+  let i=0;
+  const T_IN=2000, T_SHOW=5000, T_OUT=2000, T_HIDE=20000;
+
+  function cycle(){
+    const o = ROT[i];
+    img.style.opacity=0;
+    setTimeout(()=>{ img.src=o.src; link.href=o.link; img.style.opacity=1; },120);
+
+    wrap.classList.remove("slide-out");
+    wrap.classList.add("slide-in");
+    wrap.style.pointerEvents = "auto";
+
+    setTimeout(()=>{
+      wrap.classList.remove("slide-in");
+      wrap.classList.add("slide-out");
+      wrap.style.pointerEvents = "none";
+
+      setTimeout(()=>{
+        i=(i+1)%ROT.length;
+        setTimeout(cycle, T_HIDE);
+      }, T_OUT);
+
+    }, T_IN+T_SHOW);
+  }
+
+  cycle();
+})();
+
+/* Load Ruffle Player */
+(function(){
+  const container = document.getElementById("gameContainer");
+  const fallback  = document.getElementById("gameFallback");
+
+  function initRuffle(){
+    if(!window.RufflePlayer) return;
+
+    const r = window.RufflePlayer.newest();
+    const p = r.createPlayer();
+    p.style.width = "100%";
+    p.style.height = "100%";
+    p.style.position = "absolute";
+    p.style.inset = "0";
+
+    container.appendChild(p);
+
+    p.load("sugar-sugar-10638f2f2.swf").then(()=>{
+      fallback.style.display="none";
+    }).catch(()=>{
+      fallback.innerHTML = "<strong>Failed to load Sugar, Sugar.</strong><br>Check that the SWF file is correctly placed.";
+    });
+  }
+
+  if(document.readyState==="complete" || document.readyState==="interactive")
+    initRuffle();
+  else
+    document.addEventListener("DOMContentLoaded", initRuffle);
+})();
+</script>
+
+<!-- Hidden SEO Block -->
+<div class="seo-hidden">
+  <h1>Sugar, Sugar unblocked – play online</h1>
+  <p>
+    Sugar, Sugar is a classic logic and drawing puzzle g@me where you draw lines to guide sugar 
+    granules into cups. This is the original Sugar, Sugar unblocked and works at school, work, and home.
+  </p>
+  <p>
+    Keywords: Sugar Sugar, sugar sugar unblocked, sugar sugar game, sugar sugar g@me, unbl0cked sugar sugar, 
+    draw puzzle g@me, logic puzzle unblocked, puzzle games for school, StaticQuasar931, static 931, 
+    staticquasar931, staticq931, unblocked g@mes, school-safe puzzle games.
+  </p>
+</div>
+
+</body>
+</html>
